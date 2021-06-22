@@ -1,13 +1,14 @@
 {% set name = "simanneal" %}
-{% set version = "0.4.2" %}
+{% set githubuser = "perrygeo" %}
+{% set version = "0.5.0" %}
 
 package:
-  name: "{{ name|lower }}"
-  version: "{{ version }}"
+  name: {{ name|lower }}
+  version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 0657354bacd503ff5fc0b984110be7b174ecedbb976caf1c230c73a128a06d5a
+  url: https://github.com/{{ githubuser }}/{{ name }}/archive/refs/tags/{{ version }}.tar.gz
+  sha256: 8bb6f421398a425d1cd0c2bd316507c0e19148cee75824963d8ccd776518d8cb
 
 build:
   number: 0
@@ -17,9 +18,9 @@ build:
 requirements:
   host:
     - pip
-    - python
+    - python >=3.6
   run:
-    - python
+    - python >=3.6
 
 test:
   imports:
@@ -29,7 +30,7 @@ about:
   home: https://github.com/perrygeo/simanneal
   license: ISC
   license_family: BSD
-  license_file: '{{ environ["RECIPE_DIR"] }}/LICENSE.txt'
+  license_file: LICENSE.txt
   summary: Simulated Annealing (simulated annealing optimization) in Python
   doc_url: https://github.com/perrygeo/simanneal
   dev_url: https://github.com/perrygeo/simanneal
